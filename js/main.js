@@ -5,7 +5,7 @@ requirejs.config({
 		'jquery': 'ext/jquery',
 		'underscore': 'ext/underscore',
 		'backbone': 'ext/backbone',
-		'tpl': 'app/tpl'
+		'tpl': 'misc/tpl'
 	},
 
 	shim: {

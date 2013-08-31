@@ -11,16 +11,19 @@ define({
 
 		cache = {};
 
-		req(['jquery', 'ext/handlebars'], function($, handlebars) {
-			if (cache[name]) {
-				onload(cache[name]);
-				return;
-			}
+		req(
+			['jquery', 'ext/handlebars', 'misc/helpers'],
+			function($, handlebars) {
+				if (cache[name]) {
+					onload(cache[name]);
+					return;
+				}
 
-			$.get('/tpl/' + name + '.html').done(function(source) {
-				cache[name] = handlebars.compile(source);
-				onload(cache[name]);
-			});
-		});
+				$.get('/tpl/' + name + '.html').done(function(source) {
+					cache[name] = handlebars.compile(source);
+					onload(cache[name]);
+				});
+			}
+		);
 	}
 });
