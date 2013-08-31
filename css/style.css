@@ -1,0 +1,114 @@
+h1 {
+	margin: 20px;
+}
+
+ul#main-menu {
+	margin: 0;
+	padding: 0;
+}
+
+ul#main-menu li {
+	list-style: none;
+	display: inline-block;
+	margin: 10px 10px 0 10px;
+	padding: 5px 20px;
+	border: 1px solid #afafaf;
+	border-bottom: none;
+	color: #4f4f4f;
+	font-weight: bold;
+}
+
+ul#main-menu li.current-item {
+	background: #6fefbf;
+	border-color: #6fefbf;
+	color: white;
+	font-weight: normal;
+}
+
+div#body {
+	border-top: 1px solid #afafaf;
+	padding: 20px;
+}
+
+form#feedback-form {
+	width: 35%;
+	padding: 10px;
+	min-height: 150px;
+}
+
+form#feedback-form input, textarea#message {
+	border: 1px solid #4f4f4f;
+	padding: 5px;
+	font-size: 0.75em;
+	margin: 0 0 10px 0;
+}
+
+form#feedback-form input {
+	min-width: 45%;
+}
+
+input#first-name {
+	float: left;
+}
+
+input#first-name {
+	float: right;
+}
+
+textarea#message {
+	position: relative;
+	display: block;
+	width: 97.5%;
+	float: right;
+}
+
+button#send-button {
+	background-color: #6fefbf;
+	border: none;
+	color: white;
+	font-weight: bold;
+	font-size: 0.5em;
+	padding: 10px 20px;
+	margin: 10px 0;
+	float: right;
+	text-transform: uppercase;
+}
+
+table#feedback-list {
+	border-collapse: collapse;
+	width: 100%;
+	table-layout: auto;
+	margin-top: 20px;
+}
+
+table#feedback-list th, table#feedback-list td {
+	border: 1px solid #cfcfcf;
+	padding: 5px;
+}
+
+table#feedback-list th {
+	background: #6fefbf;
+	color: white;
+}
+
+th#datetime-header {
+	width: 20%;
+	min-width: 80px;
+}
+
+th#name-header {
+	width: 25%;
+	min-width: 120px;
+}
+
+td.datetime {
+	text-align: right;
+}
+
+td.full-time {
+	text-align: left;
+}
+
+td.message {
+	text-align: left;
+}

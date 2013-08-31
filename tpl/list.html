@@ -1,14 +1,14 @@
 <table id="feedback-list">
 	<tr>
-		<th>Datetime</th>
-		<th>Name</th>
-		<th>Message</th>
+		<th id="datetime-header">Datetime</th>
+		<th id="name-header">Name</th>
+		<th id="message-header">Message</th>
 	</tr>
 	{{#each feedback}}
 		<tr>
-			<td>{{formatTime this.time}}</td>
-			<td>{{fullName this}}</td>
-			<td>{{text this.message}}</td>
+			<td class="datetime">{{formatTime this.time}}</td>
+			<td class="full-name">{{fullName this}}</td>
+			<td class="message">{{text this.message}}</td>
 		</tr>
 	{{/each}}
 </table>

@@ -25,7 +25,7 @@ define(
 
 				this._render();
 
-				this.$el.append(listView.$el);
+				this.$('#body').append(listView.$el);
 			},
 
 			_render: function() {
