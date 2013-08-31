@@ -1,24 +1,35 @@
 requirejs.config({
 	baseUrl: '/js/',
 
+	paths: {
+		'jquery': 'ext/jquery',
+		'underscore': 'ext/underscore',
+		'backbone': 'ext/backbone',
+		'tpl': 'app/tpl'
+	},
+
 	shim: {
-		'ext/backbone': {
-			deps: ['ext/underscore', 'ext/jquery'],
+		'backbone': {
+			deps: ['underscore', 'jquery'],
 			exports: 'Backbone'
 		},
 
-		'ext/underscore': {
+		'underscore': {
 			exports: '_'
 		},
 
-		'ext/jquery': {
+		'jquery': {
 			exports: 'jQuery'
+		},
+
+		'ext/handlebars': {
+			exports: 'Handlebars'
 		}
 	}
 });
 
 require(
-	['ext/jquery', 'ext/backbone', 'app/Router'],
+	['jquery', 'backbone', 'app/Router'],
 	function($, backbone, Router) {
 		// App start point
 
