@@ -1,7 +1,7 @@
 define(
 	['backbone', 'tpl!feedback', 'app/collection/FeedbackCollection',
-		'app/view/FeedbackListView'],
-	function(backbone, feedbackTpl, FeedbackCollection, FeedbackListView) {
+		'app/view/ListView'],
+	function(backbone, feedbackTpl, FeedbackCollection, ListView) {
 		return backbone.View.extend({
 			events: {
 				'submit form#feedback-form': '_submitFeedback'
@@ -19,7 +19,7 @@ define(
 
 				this._collection = new FeedbackCollection();
 
-				listView = new FeedbackListView({
+				listView = new ListView({
 					collection: this._collection
 				});
 

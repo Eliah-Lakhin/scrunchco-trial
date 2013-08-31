@@ -1,6 +1,6 @@
 define(
-	['backbone', 'tpl!feedback-list'],
-	function(backbone, feedbackListTpl) {
+	['backbone', 'tpl!list'],
+	function(backbone, listTpl) {
 		return backbone.View.extend({
 			collection: null,
 
@@ -9,7 +9,7 @@ define(
 			},
 
 			_render: function() {
-				this.$el.html(feedbackListTpl({
+				this.$el.html(listTpl({
 					feedback: this.collection.toJSON()
 				}));
 			}
