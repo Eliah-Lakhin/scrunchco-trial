@@ -10,11 +10,19 @@
 <div id="body">
 	<form id="feedback-form">
 		<div>
-			<input type="text" placeholder="First name" id="first-name" />
-			<input type="text" placeholder="Second name" id="second-name" />
+			<input id="first-name"
+				   type="text"
+				   placeholder="First name"
+				   required="required" />
+			<input id="second-name"
+				   type="text"
+				   placeholder="Second name"
+				   required="required" />
 		</div>
 
-		<textarea placeholder="Your message" id="message"></textarea>
+		<textarea id="message"
+				  placeholder="Your message"
+				  required="required" ></textarea>
 
 		<button id="send-button">Send</button>
 	</form>
