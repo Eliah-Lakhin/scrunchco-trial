@@ -18,14 +18,16 @@ requirejs.config({
 });
 
 require(
-	[
-		'ext/backbone',
-		'ext/jquery'
-	],
-	function(
-		Backbone,
-		$
-	) {
+	['ext/jquery', 'ext/backbone', 'app/Router'],
+	function($, backbone, Router) {
 		// App start point
+
+		$(function() {
+			var router;
+
+			router = new Router();
+
+			backbone.history.start();
+		});
 	}
 );
