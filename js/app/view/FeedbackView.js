@@ -1,31 +1,51 @@
-define(['backbone', 'tpl!feedback'], function(backbone, feedbackTpl) {
-	return backbone.View.extend({
-		events: {
-			'submit form#feedback-form': '_submitFeedback'
-		},
+define(
+	['backbone', 'tpl!feedback', 'app/collection/FeedbackCollection'],
+	function(backbone, feedbackTpl, FeedbackCollection) {
+		return backbone.View.extend({
+			events: {
+				'submit form#feedback-form': '_submitFeedback'
+			},
 
-		_$form: null,
-		_$firstName: null,
-		_$secondName: null,
-		_$message: null,
+			_collection: null,
 
-		initialize: function() {
-			this._render();
-		},
+			_$form: null,
+			_$firstName: null,
+			_$secondName: null,
+			_$message: null,
 
-		_render: function() {
-			this.$el.html(feedbackTpl());
+			initialize: function() {
+				this._collection = new FeedbackCollection();
 
-			this._$form = this.$('form#feedback-form');
-			this._$firstName = this.$('input#firstName');
-			this._$secondName = this.$('input#secondName');
-			this._$message = this.$('input#message');
-		},
+				this._collection.on('add', this._add, this);
 
-		_submitFeedback: function() {
+				this._render();
+			},
 
+			_render: function() {
+				this.$el.html(feedbackTpl());
 
-			return false;
-		}
-	});
-});
+				this._$firstName = this.$('input#firstName');
+				this._$secondName = this.$('input#secondName');
+				this._$message = this.$('input#message');
+			},
+
+			_submitFeedback: function() {
+				var model;
+
+				model = {
+					firstName: this._$firstName.val(),
+					secondName: this._$secondName.val(),
+					message: this._$message.val()
+				};
+
+				this._collection.add(model);
+
+				return false;
+			},
+
+			_add: function(model) {
+				console.log(model.get('time'))
+			}
+		});
+	}
+);
