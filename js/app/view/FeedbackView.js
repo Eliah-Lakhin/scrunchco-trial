@@ -1,6 +1,7 @@
 define(
-	['backbone', 'tpl!feedback', 'app/collection/FeedbackCollection'],
-	function(backbone, feedbackTpl, FeedbackCollection) {
+	['backbone', 'tpl!feedback', 'app/collection/FeedbackCollection',
+		'app/view/FeedbackListView'],
+	function(backbone, feedbackTpl, FeedbackCollection, FeedbackListView) {
 		return backbone.View.extend({
 			events: {
 				'submit form#feedback-form': '_submitFeedback'
@@ -14,19 +15,25 @@ define(
 			_$message: null,
 
 			initialize: function() {
+				var listView;
+
 				this._collection = new FeedbackCollection();
 
-				this._collection.on('add', this._add, this);
+				listView = new FeedbackListView({
+					collection: this._collection
+				});
 
 				this._render();
+
+				this.$el.append(listView.$el);
 			},
 
 			_render: function() {
 				this.$el.html(feedbackTpl());
 
-				this._$firstName = this.$('input#firstName');
-				this._$secondName = this.$('input#secondName');
-				this._$message = this.$('input#message');
+				this._$firstName = this.$('input#first-name');
+				this._$secondName = this.$('input#second-name');
+				this._$message = this.$('textarea#message');
 			},
 
 			_submitFeedback: function() {
@@ -41,10 +48,6 @@ define(
 				this._collection.add(model);
 
 				return false;
-			},
-
-			_add: function(model) {
-				console.log(model.get('time'))
 			}
 		});
 	}
