@@ -24,8 +24,10 @@ define(
 				});
 
 				this._render();
-
 				this.$('#body').append(listView.$el);
+
+				this._collection.fetch();
+				this._collection.on('add', this._modelAdded, this);
 			},
 
 			_render: function() {
@@ -48,6 +50,12 @@ define(
 				this._collection.add(model);
 
 				return false;
+			},
+
+			_modelAdded: function(model) {
+				if (model.isNew()) {
+					model.save();
+				}
 			}
 		});
 	}

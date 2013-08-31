@@ -5,10 +5,16 @@ requirejs.config({
 		'jquery': 'ext/jquery',
 		'underscore': 'ext/underscore',
 		'backbone': 'ext/backbone',
+		'localStorage': 'ext/backbone.localStorage',
 		'tpl': 'misc/tpl'
 	},
 
 	shim: {
+		'localStorage': {
+			deps: ['backbone'],
+			exports: 'Backbone.LocalStorage'
+		},
+
 		'backbone': {
 			deps: ['underscore', 'jquery'],
 			exports: 'Backbone'
